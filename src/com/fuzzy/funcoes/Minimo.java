@@ -22,27 +22,82 @@ package com.fuzzy.funcoes;
  * @author Marlon Prudente <marlonoliveira at alunos.utfpr.edu.br>
  */
 public class Minimo {
+
     Double a;
     Double b;
     Double c;
-    
-    public String getMinimo(Double pequeno, Double medio, Double grande){
+
+    public String getMinimoString(Double pequeno, Double medio, Double grande) {
         this.a = pequeno;
         this.b = medio;
         this.c = grande;
-        if (a>b){
-            if(a>c){
+        if (a > b) {
+            if (a > c) {
                 return "Pequeno";
-            }else{
+            } else {
                 return "Grande";
             }
-            
-        }else{
-            if(b>c){
+
+        } else {
+            if (b > c) {
                 return "Medio";
-            }else{
+            } else {
                 return "Grande";
             }
         }
+    }
+
+    public Double getMinimo(Double pequeno, Double medio, Double grande) {
+        this.a = pequeno;
+        this.b = medio;
+        this.c = grande;
+        if (a > b) {
+            if (b > c) {
+                return c;
+            } else {
+                return b;
+            }
+
+        } else {
+            if (a > c) {
+                return c;
+            } else {
+                return a;
+            }
+        }
+    }
+    public Double getMaximo(Double mc, Double c, Double m, Double l, Double ml){
+        
+        if(mc>c){
+            if(mc>m){
+                if(mc>l){
+                    if(mc>ml){
+                        System.out.println("MC");
+                        return mc;
+                    }
+                }
+            }
+        }else if(c>m){
+            if(c>l){
+                if(c>ml){
+                    System.out.println("C");
+                    return c;
+                }
+            }
+        }else if(m>l){
+            if(m>ml){
+                System.out.println("M");
+                return m;
+            }
+            
+        }else if(l>ml){
+            System.out.println("L");
+            return l;
+        }else{
+            System.out.println("ML");
+            return ml;
+        }        
+        return null;
+
     }
 }

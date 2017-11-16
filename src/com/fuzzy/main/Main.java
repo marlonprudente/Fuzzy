@@ -18,12 +18,7 @@
 package com.fuzzy.main;
 
 import com.fuzzy.funcoes.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
-import jdk.internal.util.xml.impl.Pair;
+import com.fuzzy.sistemas.*;
 
 /**
  *
@@ -32,57 +27,60 @@ import jdk.internal.util.xml.impl.Pair;
 public class Main {
 
     public static void main(String[] args) {
-        Minimo compare = new Minimo();
-        //X1
-        Double sujeira = 100.0;
-        Triangular sujeiraPS = new Triangular(0.0, 0.0, 50.0);
-        Triangular sujeiraMS = new Triangular(0.0, 50.0, 100.0);
-        Triangular sujeiraGS = new Triangular(50.0, 100.0, 100.0);
-        //X2
-        Double mancha = 100.0;
-        Triangular manchaSM = new Triangular(0.0, 0.0, 50.0);
-        Triangular manchaMM = new Triangular(0.0, 50.0, 100.0);
-        Triangular manchaGM = new Triangular(50.0, 100.0, 100.0);
-        //Y
-        Triangular tempoMC = new Triangular(0.0, 0.0, 10.0);
-        Triangular tempoC = new Triangular(0.0, 10.0, 25.0);
-        Triangular tempoM = new Triangular(10.0, 25.0, 40.0);
-        Triangular tempoL = new Triangular(25.0, 40.0, 60.0);
-        Triangular tempoML = new Triangular(40.0, 60.0, 60.0);
+        // Minimo compare = new Minimo();
+        // //X1
+        // Double sujeira = 100.0;
+        // Triangular sujeiraPS = new Triangular(0.0, 0.0, 50.0);
+        // Triangular sujeiraMS = new Triangular(0.0, 50.0, 100.0);
+        // Triangular sujeiraGS = new Triangular(50.0, 100.0, 100.0);
+        // //X2
+        // Double mancha = 100.0;
+        // Triangular manchaSM = new Triangular(0.0, 0.0, 50.0);
+        // Triangular manchaMM = new Triangular(0.0, 50.0, 100.0);
+        // Triangular manchaGM = new Triangular(50.0, 100.0, 100.0);
+        // //Y
+        // Triangular tempoMC = new Triangular(0.0, 0.0, 10.0);
+        // Triangular tempoC = new Triangular(0.0, 10.0, 25.0);
+        // Triangular tempoM = new Triangular(10.0, 25.0, 40.0);
+        // Triangular tempoL = new Triangular(25.0, 40.0, 60.0);
+        // Triangular tempoML = new Triangular(40.0, 60.0, 60.0);
         
-        String X1, X2, Y;
+        // String X1, X2, Y;
 
-        X1 = compare.getMinimo(sujeiraPS.Resultado(sujeira), sujeiraMS.Resultado(sujeira), sujeiraGS.Resultado(sujeira));
-        X2 = compare.getMinimo(manchaSM.Resultado(mancha), manchaMM.Resultado(mancha), manchaGM.Resultado(mancha));
+        // X1 = compare.getMinimoString(sujeiraPS.Resultado(sujeira), sujeiraMS.Resultado(sujeira), sujeiraGS.Resultado(sujeira));
+        // X2 = compare.getMinimoString(manchaSM.Resultado(mancha), manchaMM.Resultado(mancha), manchaGM.Resultado(mancha));
         
-        if (X1 == "Pequeno" && X2 == "Pequeno") {
-            Y = "Muito Curto";
-        } else if (X1 == "Medio" && X2 == "Pequeno") {
-            Y = "Curto";
+        // if (X1 == "Pequeno" && X2 == "Pequeno") {
+            // Y = "Muito Curto";
+        // } else if (X1 == "Medio" && X2 == "Pequeno") {
+            // Y = "Curto";
 
-        } else if (X1 == "Grande" && X2 == "Pequeno") {
-            Y = "Medio";
+        // } else if (X1 == "Grande" && X2 == "Pequeno") {
+            // Y = "Medio";
 
-        } else if (X1 == "Pequeno" && X2 == "Medio") {
-            Y = "Medio";
+        // } else if (X1 == "Pequeno" && X2 == "Medio") {
+            // Y = "Medio";
 
-        } else if (X1 == "Medio" && X2 == "Medio") {
-            Y = "Medio";
+        // } else if (X1 == "Medio" && X2 == "Medio") {
+            // Y = "Medio";
 
-        } else if (X1 == "Grande" && X2 == "Medio") {
-            Y = "Longo";
+        // } else if (X1 == "Grande" && X2 == "Medio") {
+            // Y = "Longo";
 
-        } else if (X1 == "Pequeno" && X2 == "Grande") {
-            Y = "Longo";
+        // } else if (X1 == "Pequeno" && X2 == "Grande") {
+            // Y = "Longo";
 
-        } else if (X1 == "Medio" && X2 == "Grande") {
-            Y = "Longo";
+        // } else if (X1 == "Medio" && X2 == "Grande") {
+            // Y = "Longo";
 
-        } else {
-            Y = "Muito Longo";
+        // } else {
+            // Y = "Muito Longo";
 
-        }
-        System.out.println("Sujeira = " + X1 + " Mancha = " + X2 + " Resultado: " + Y);
+        // }
+        // System.out.println("Sujeira = " + X1 + " Mancha = " + X2 + " Resultado: " + Y);
+        
+        Mamdani mand = new Mamdani(70.0,75.0);
+        mand.getY();
 
     }
 }
