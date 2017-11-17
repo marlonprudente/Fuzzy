@@ -40,7 +40,7 @@ public class Mamdani {
         Triangular tempoL = new Triangular(25.0, 40.0, 60.0);
         Triangular tempoML = new Triangular(40.0, 60.0, 60.0);
         //==========Regra 1:
-        System.out.print("Y1: ");
+        //System.out.print("Y1: ");
         y1 = Math.min(sujeiraPS.Resultado(sujeira), manchaSM.Resultado(mancha));
         tempoMC.Suporte();
         a = tempoMC.getAlfaA();
@@ -49,9 +49,9 @@ public class Mamdani {
         m = tempoMC.getAlfaA();
         n = tempoMC.getAlfaB();
         Y1 = new Trapezoidal(a,m,n,b,y1);
-        System.out.print("" + Y1.Resultado(5.0) + "Altura: " + y1 + "a: " + a + "b: " + b + "m: "+m+"n: "+n);
+        //System.out.print("" + Y1.Resultado(5.0) + "Altura: " + y1 + "a: " + a + "b: " + b + "m: "+m+"n: "+n);
         //==========Regra 2:
-        System.out.print("Y2: ");
+        //System.out.print("Y2: ");
         y2 = Math.min(sujeiraMS.Resultado(sujeira), manchaSM.Resultado(mancha));
         tempoC.Suporte();
         a = tempoC.getAlfaA();
@@ -61,7 +61,7 @@ public class Mamdani {
         n = tempoC.getAlfaB();
         Y2 = new Trapezoidal(a,m,n,b,y2);
         //==========Regra 3:
-        System.out.print("Y3: ");
+        //System.out.print("Y3: ");
         y3 = Math.min(sujeiraGS.Resultado(sujeira), manchaSM.Resultado(mancha)); 
         tempoM.Suporte();
         a = tempoM.getAlfaA();
@@ -71,7 +71,7 @@ public class Mamdani {
         n = tempoM.getAlfaB();
         Y3 = new Trapezoidal(a,m,n,b,y3);
         //===========Regra 4:
-        System.out.print("Y4: ");
+        //System.out.print("Y4: ");
         y4 = Math.min(sujeiraPS.Resultado(sujeira), manchaMM.Resultado(mancha));
         tempoM.Suporte();
         a = tempoM.getAlfaA();
@@ -81,7 +81,7 @@ public class Mamdani {
         n = tempoM.getAlfaB();
         Y4 = new Trapezoidal(a,m,n,b,y4);
         //==========Regra 5:
-        System.out.print("Y5: ");
+        //System.out.print("Y5: ");
         y5 = Math.min(sujeiraMS.Resultado(sujeira), manchaMM.Resultado(mancha));
         tempoM.Suporte();
         a = tempoM.getAlfaA();
@@ -91,7 +91,7 @@ public class Mamdani {
         n = tempoM.getAlfaB();
         Y5 = new Trapezoidal(a,m,n,b,y5);
         //=========Regra 6:
-        System.out.print("Y6: ");
+        //System.out.print("Y6: ");
         y6 = Math.min(sujeiraGS.Resultado(sujeira), manchaMM.Resultado(mancha)); 
         tempoL.Suporte();
         a = tempoL.getAlfaA();
@@ -101,7 +101,7 @@ public class Mamdani {
         n = tempoL.getAlfaB();
         Y6 = new Trapezoidal(a,m,n,b,y6);
         //=========Regra 7:
-        System.out.print("Y7: ");
+       // System.out.print("Y7: ");
         y7 = Math.min(sujeiraPS.Resultado(sujeira), manchaGM.Resultado(mancha));
         tempoL.Suporte();
         a = tempoL.getAlfaA();
@@ -111,7 +111,7 @@ public class Mamdani {
         n = tempoL.getAlfaB();
         Y7 = new Trapezoidal(a,m,n,b,y7);
         //=======Regra 8:
-        System.out.print("Y8: ");
+        //System.out.print("Y8: ");
         y8 = Math.min(sujeiraMS.Resultado(sujeira), manchaGM.Resultado(mancha));
         tempoL.Suporte();
         a = tempoL.getAlfaA();
@@ -121,7 +121,7 @@ public class Mamdani {
         n = tempoL.getAlfaB();
         Y8 = new Trapezoidal(a,m,n,b,y8);
         //=======Regra 9:
-        System.out.print("Y9: ");
+        //System.out.print("Y9: ");
         y9 = Math.min(sujeiraGS.Resultado(sujeira), manchaGM.Resultado(mancha));
         tempoML.Suporte();
         a = tempoML.getAlfaA();
