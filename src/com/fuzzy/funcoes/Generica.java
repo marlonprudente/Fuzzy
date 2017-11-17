@@ -29,8 +29,8 @@ import java.io.IOException;
 public class Generica extends Pertinencia {
 
     Double r;
-    Double[] x = new Double[601];
-    Double[] y = new Double[601];
+    Double[] x = new Double[500];
+    Double[] y = new Double[500];
 
     public Generica(Trapezoidal t1, Trapezoidal t2, Trapezoidal t3, Trapezoidal t4,
             Trapezoidal t5, Trapezoidal t6, Trapezoidal t7, Trapezoidal t8, Trapezoidal t9) throws IOException {
@@ -42,7 +42,7 @@ public class Generica extends Pertinencia {
         FileWriter escrever = new FileWriter(bd);
         BufferedWriter buffer = new BufferedWriter(escrever);
 
-        for (double i = 0; i < 60; i += 0.1) {
+        for (double i = 0; i < 100; i += 0.2) {
             v1 = Math.max(t1.Resultado(i), t2.Resultado(i));
             v2 = Math.max(t3.Resultado(i), t4.Resultado(i));
             v1 = Math.max(v1, v2);
@@ -71,8 +71,8 @@ public class Generica extends Pertinencia {
         Double area = 0.0;
         Double centroide = 0.0;
         Double x1, x2, y1, y2;
-        for (int i = 1; i < 600; i++) {
-            if (i == 599) {
+        for (int i = 1; i < 500; i++) {
+            if (i == 499) {
                 x2 = x[0];
                 y2 = y[0];
             } else {

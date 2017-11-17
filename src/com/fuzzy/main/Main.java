@@ -29,7 +29,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Mamdani mand = new Mamdani(20.0,60.0);
+        Mamdani mand = new Mamdani(20.0,99.0);
 
 
     }
