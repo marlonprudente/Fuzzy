@@ -26,6 +26,8 @@ public class Trapezoidal extends Pertinencia {
     Double a;
     Double n;
     Double b;
+    Double alfaA;
+    Double alfaB;
 
     public Trapezoidal(Double a, Double m, Double n, Double b) {
         this.a = a;
@@ -47,6 +49,7 @@ public class Trapezoidal extends Pertinencia {
     @Override
     public Double Resultado(Double x) {
         Double resultado;
+        
         if (x < a) {
             resultado = 0.0;
         } else if (x < m) {
@@ -63,20 +66,20 @@ public class Trapezoidal extends Pertinencia {
     }
 
     @Override
-    public void AlfaCorte(Double alfa, Double in_1, Double in_2) {
+    public void AlfaCorte(Double alfa) {
 
         if (alfa <= 0) {
-            in_1 = a;
-            in_2 = b;
-        } else if (alfa < 1) {
-            in_1 = ((alfa * (m - a)) / altura) + a;
-            in_2 = (((altura - alfa) * (b - m)) / altura) + m;
-        } else if (alfa == 1) {
-            in_1 = m;
-            in_2 = n;
-        } else if (alfa > 1) {
-            in_1 = 0.0;
-            in_2 = -1.0;
+            alfaA = a;
+            alfaB = b;
+        } else if (alfa < altura) {
+            alfaA = ((alfa * (m - a)) / altura) + a;
+            alfaB = (((altura - alfa) * (b - m)) / altura) + m;
+        } else if (alfa == altura) {
+            alfaA = m;
+            alfaB = n;
+        } else if (alfa > altura) {
+            alfaA = 0.0;
+            alfaB = -1.0;
         }
     }
 

@@ -17,8 +17,10 @@
  */
 package com.fuzzy.funcoes;
 
-import java.util.Hashtable;
-import java.util.Map;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -26,44 +28,65 @@ import java.util.Map;
  */
 public class Generica extends Pertinencia {
 
-    Hashtable<Integer, Vetor> vertices;
+    Double r;
+    Double[] x = new Double[601];
+    Double[] y = new Double[601];
 
-    public Generica(Hashtable<Integer, Vetor> vertices) {
-        this.vertices = vertices;
+    public Generica(Trapezoidal t1, Trapezoidal t2, Trapezoidal t3, Trapezoidal t4,
+            Trapezoidal t5, Trapezoidal t6, Trapezoidal t7, Trapezoidal t8, Trapezoidal t9) throws IOException {
+        Double v1, v2;
+        int j = 0;
+        String fileName = "bancodedados.txt";
+        File bd = new File(fileName);
+        bd.createNewFile();
+        FileWriter escrever = new FileWriter(bd);
+        BufferedWriter buffer = new BufferedWriter(escrever);
 
-    }
+        for (double i = 0; i < 60; i += 0.1) {
+            v1 = Math.max(t1.Resultado(i), t2.Resultado(i));
+            v2 = Math.max(t3.Resultado(i), t4.Resultado(i));
+            v1 = Math.max(v1, v2);
+            v2 = Math.max(v2, t5.Resultado(i));
+            v2 = Math.max(v2, t6.Resultado(i));
+            v2 = Math.max(v2, t7.Resultado(i));
+            v2 = Math.max(v2, t8.Resultado(i));
+            v2 = Math.max(v2, t9.Resultado(i));
 
-    @Override
-    public Double Resultado(Double x) {
-        for (int i = 0; i <vertices.size();i++) {
-             Double x1, y1, x2, y2;
-             
-            x1 = vertices.get(i-1).getP1();
-            y1 = vertices.get(i-1).getP2();
-            x2 = vertices.get(i).getP1();
-            y2 = vertices.get(i).getP2();
+            r = Math.max(v1, v2);
+            buffer.write("(" + i + "," + r + ")");
+            buffer.newLine();
+            x[j] = i;
+            y[j] = r;
+            j++;
 
-            if (x >= x1 && x <= x2) {
-
-                Double m = (y1 * y2) / (x2 - x1);
-
-                return m * (x2 - x1) - y1;
-            }
         }
+        buffer.close();
 
-        return 0.0;
-
-    }
-
-
-    public Hashtable<Integer, Vetor> AlfaCorteTable(Double alfa, Double in_1, Double in_2) {
-        
-        return vertices;
     }
 
     @Override
     public Double Centroide() {
-        return 0.0;
+
+
+        Double area = 0.0;
+        Double centroide = 0.0;
+        Double x1, x2, y1, y2;
+        for (int i = 1; i < 600; i++) {
+            if (i == 599) {
+                x2 = x[0];
+                y2 = y[0];
+            } else {
+                x2 = x[i + 1];
+                y2 = y[i + 1];
+            }
+            x1 = x[i];
+            y1 = y[i];
+            area += (x1 * y2 - x2 * y1);
+            centroide += (x1 + x2) * (x1 * y2 - x2 * y1);
+        }
+        area /= 2;
+        return centroide / (6 * area);
+
     }
 
 }

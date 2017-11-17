@@ -25,6 +25,8 @@ public class Triangular extends Pertinencia {
 
     Double a;
     Double b;
+    Double alfaA;
+    Double alfaB;
 
     public Triangular(Double a, Double m, Double b) {
         this.a = a;
@@ -57,20 +59,27 @@ public class Triangular extends Pertinencia {
     }
 
     @Override
-    public void AlfaCorte(Double alfa, Double in_1, Double in_2) {
-        if (alfa <= 0) {
-            in_1 = a;
-            in_2 = b;
-        } else if (alfa < 1) {
-            in_1 = ((alfa * (m - a)) / altura) + a;
-            in_2 = (((altura - alfa) * (b - m)) / altura) + m;
-        } else if (alfa == 1) {
-            in_1 = m;
-            in_2 = m;
-        } else if (alfa > 1) {
-            in_1 = 0.0;
-            in_2 = -1.0;
+    public void AlfaCorte(Double alfa) {
+        if (alfa <= 0.0) {
+            alfaA = a;
+            alfaB = b;
+        } else if (alfa < altura) {
+            alfaA = ((alfa * (m - a)) / altura) + a;
+            alfaB = (((altura - alfa) * (b - m)) / altura) + m;
+        } else if (alfa == altura) {
+            alfaA = m;
+            alfaB = m;
+        } else if (alfa > altura) {
+            alfaA = 0.0;
+            alfaB = -1.0;
         }
+    }
+    
+    public Double getAlfaA(){
+        return alfaA;
+    }
+    public Double getAlfaB(){
+        return alfaB;
     }
 
 }

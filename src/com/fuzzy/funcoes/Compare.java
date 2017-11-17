@@ -21,7 +21,7 @@ package com.fuzzy.funcoes;
  *
  * @author Marlon Prudente <marlonoliveira at alunos.utfpr.edu.br>
  */
-public class Minimo {
+public class Compare {
 
     Double a;
     Double b;

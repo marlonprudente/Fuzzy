@@ -29,15 +29,15 @@ public class Pertinencia {
     public Double Resultado(Double x){
         return 0.0;
     }
-    public void AlfaCorte(Double alfa, Double in_1, Double in_2){
+    public void AlfaCorte(Double alfa){
         
     }
-    public void Suporte(Double in_1, Double in_2){
-        this.AlfaCorte(0.0,in_1, in_2);
+    public void Suporte(){
+        this.AlfaCorte(0.0);
         
     }
-    public void Nucleo(Double in_1, Double in_2){
-        this.AlfaCorte(1.0,in_1,in_2);
+    public void Nucleo(){
+        this.AlfaCorte(1.0);
     }
     public Double Altura(){
         return altura;

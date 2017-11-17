@@ -24,6 +24,8 @@ import java.util.Objects;
  * @author Marlon Prudente <marlonoliveira at alunos.utfpr.edu.br>
  */
 public class Singleton extends Pertinencia {
+    Double alfaA;
+    Double alfaB;
 
     public Singleton(Double m) {
         super.m = m;        
@@ -50,13 +52,13 @@ public class Singleton extends Pertinencia {
     }
 
     @Override
-    public void AlfaCorte(Double alfa, Double in_1, Double in_2) {
+    public void AlfaCorte(Double alfa) {
         if (alfa <= altura) {
-            in_1 = m;
-            in_2 = m;
+            alfaA = m;
+            alfaB = m;
         } else if (alfa > altura) {
-            in_1 = 0.0;
-            in_2 = -1.0;
+            alfaA = 0.0;
+            alfaB = -1.0;
         }
     }
 
