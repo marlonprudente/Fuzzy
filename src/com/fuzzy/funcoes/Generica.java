@@ -21,6 +21,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -36,6 +37,7 @@ public class Generica extends Pertinencia {
             Trapezoidal t5, Trapezoidal t6, Trapezoidal t7, Trapezoidal t8, Trapezoidal t9) throws IOException {
         Double v1, v2;
         int j = 0;
+        DecimalFormat df =  new DecimalFormat("0.00");
         String fileName = "bancodedados.txt";
         File bd = new File(fileName);
         bd.createNewFile();
@@ -53,7 +55,7 @@ public class Generica extends Pertinencia {
             v2 = Math.max(v2, t9.Resultado(i));
 
             r = Math.max(v1, v2);
-            buffer.write("(" + i + "," + r + ")");
+            buffer.write("(" + df.format(i) + "," + df.format(r) +")");
             buffer.newLine();
             x[j] = i;
             y[j] = r;
